@@ -9,6 +9,8 @@ const GetStartedWrapper = ({
   onBack,
   onContinue,
   continueLabel = 'Continue',
+  isLoading = false,
+  progress = 0,
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }: any) => {
   const [keyboardOpen, setKeyboardOpen] = useState(false);
@@ -80,12 +82,18 @@ const GetStartedWrapper = ({
       >
         <button
           onClick={handleNavigate}
+          disabled={isLoading}
           className={`w-full ${
             selected ? 'bg-[#33FFC2] text-[#111111]' : 'bg-[#33FFC2] text-gray-500 opacity-50'
-          } py-3 rounded-[24px] shadow-md`}
-          
+          } py-3 rounded-[24px] shadow-md relative overflow-hidden`}
         >
-          {continueLabel}
+          {isLoading && (
+            <div 
+              className="absolute left-0 top-0 h-full bg-green-400 transition-all duration-1000 ease-linear"
+              style={{ width: `${progress}%` }}
+            />
+          )}
+          <span className="relative z-10">{continueLabel}</span>
         </button>
       </div>
     </div>

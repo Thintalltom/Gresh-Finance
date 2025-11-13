@@ -18,9 +18,9 @@ const PersonalDetails = () => {
   const navigate = useNavigate()
 
   const handleContinue = () => {
-    console.log('Form data:', formData)
+    // console.log('Form data:', formData)
     // Navigate to verification step
-    navigate('/verification')
+    navigate('/secureAccount')
   }
 
   const handleBack = () => {
