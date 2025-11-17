@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { StepIndicator } from './StepIndicator'
 import GetStartedWrapper from './GetStartedWrapper'
 import tick from '../assets/tick.png'

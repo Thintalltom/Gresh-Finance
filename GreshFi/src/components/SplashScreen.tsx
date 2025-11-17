@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import  { useState, useEffect } from 'react'
 import SplashImg from '../assets/Frame.png'
 import SplashImg2 from '../assets/Frame (1).png'
 import Box from '../assets/Box.png'

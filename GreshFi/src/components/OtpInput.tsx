@@ -49,7 +49,7 @@ const OtpInput: React.FC<OtpInputProps> = ({
       {Array.from({ length }).map((_, i) => (
         <React.Fragment key={i}>
           <input
-            ref={(el) => (inputsRef.current[i] = el)}
+            ref={(el) => { inputsRef.current[i] = el; }}
             type="text"
             inputMode="numeric"
             maxLength={1}

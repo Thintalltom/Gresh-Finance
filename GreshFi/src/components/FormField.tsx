@@ -1,5 +1,16 @@
-import React from 'react'
+// import React from 'react'
 import { CheckCircleIcon } from 'lucide-react'
+
+interface FormFieldProps {
+  label: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: string;
+  placeholder?: string;
+  showValidation?: boolean;
+  validated?: boolean;
+}
+
 export function FormField({
   label,
   value,
@@ -8,7 +19,7 @@ export function FormField({
   placeholder = '',
   showValidation = false,
   validated = false,
-}) {
+}: FormFieldProps)  {
   return (
     <div className="mb-6">
       <div className="flex items-center mb-1">
