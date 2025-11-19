@@ -2,6 +2,9 @@ import { useState } from 'react'
 import details from '../../assets/details.png'
 import freeze from '../../assets/freeze.png'
 import settings from '../../assets/settings.png'
+import ApplePay from '../../assets/Applepay.png'
+import Adobe from '../../assets/Adobe.png'
+import Twitter from '../../assets/twitter.png'
 const MainDashboard = () => {
   const [currentCard, setCurrentCard] = useState(0)
   const icons = [freeze, details,  settings]
@@ -32,6 +35,26 @@ const MainDashboard = () => {
     }
   ]
 
+  const paymentData = [
+    {
+      title: 'Apple',
+      date: '20 January, 13:34',
+      price: '- $1,200.00',
+      imaage: ApplePay
+    },
+     {
+      title: 'Adobe Premium',
+      date: '20 January, 13:34',
+      price: '- $1,200.00',
+      imaage: Adobe
+    }, {
+      title: 'Twitter Premium',
+      date: '20 January, 13:34',
+      price: '- $1,200.00',
+      imaage: Twitter
+    }
+  ]
+
   const handleSwipe = (direction: 'left' | 'right') => {
     if (direction === 'left' && currentCard < cardData.length - 1) {
       setCurrentCard(currentCard + 1)
@@ -41,7 +64,7 @@ const MainDashboard = () => {
   }
 
   return (
-    <section className="flex flex-col gap-[20px]">
+    <section className="flex flex-col gap-[40px]">
       <div>
         <div 
           className="flex flex-col gap-[8px] justify-center items-center touch-pan-x"
@@ -62,25 +85,25 @@ const MainDashboard = () => {
           <p className="font-semibold text-[40px] text-white">
             {cardData[currentCard].amount} <span className="text-[30px]">{cardData[currentCard].decimal}</span>
           </p>
-          <button className="font-medium text-[#0D2F28] py-[8px] px-[12px] bg-[#EEF9F6] rounded-[30px]">
+          <button className="font-medium text-[#0D2F28] mt-[24px] py-[8px] px-[12px] bg-[#EEF9F6] rounded-[30px]">
             {cardData[currentCard].buttonText}
           </button>
         </div>
         
         {/* Dots indicator */}
-        <div className="flex justify-center gap-2 mt-4">
+        <div className="flex justify-center gap-2 mt-[40px]">
           {cardData.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentCard(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${
+              className={`w-2 h-2 rounded-full  transition-colors ${
                 index === currentCard ? 'bg-white' : 'bg-white/30'
               }`}
             />
           ))}
         </div>
       </div>
-          <div className='grid grid-cols-3'>
+          <div className='grid grid-cols-3 mt-[38px]'>
             {icons.map((icon, index) => (
               <div key={index} className='flex flex-col justify-center items-center gap-2'>
                 <div className='w-[64px] h-[64px] bg-white rounded-full  flex justify-center items-center'>
@@ -90,8 +113,20 @@ const MainDashboard = () => {
               </div>
             ))}
           </div>
-          <div className='rounded-[16px] p-[16px]'>
-
+          <div className='rounded-[16px] p-[16px] bg-white max-h-[225px]'>
+            <div>
+              {paymentData.map((payment, index) => (
+                <div key={index} className='flex gap-[20px]'>
+                  <img className='h-[24px] w-[24px] flex-none ' src={payment.imaage} alt={payment.title} />
+                  <div className='flex flex-col gap-[10px] flex-initial w-64 '>
+                    <h4 className='font-medium text-[14px]'>{payment.title}</h4>
+                    <p className='text-[#636363] text-[12px] '>{payment.date}</p>
+                    </div>
+                    <h4 className='text-[14px] text-[#000000] flex-initial w-50 '>{payment.price}</h4>
+                  </div>
+              ))}
+              <button className="mt-7 text-[#0D2F28] font-medium flex mx-auto ">See all</button>
+            </div>
           </div>
     </section>
   )

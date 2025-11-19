@@ -35,13 +35,14 @@ const DashboardWrapper = ({children}: React.PropsWithChildren) => {
       current: location.pathname === '/dashboard/profile',
     }
   ]
+
   return (
     <div className='h-screen bg-gradient-to-b from-[#0D2F28] to-[#33FFC2]'>
       <div className='flex justify-between p-[20px] w-screen pt-[24px]'>
         <div className='rounded-full w-[40px] h-[40px] bg-[#33FFC2] p-[8px] flex justify-center items-center'>
           <p className='font-semibold text-[16px]'>TA</p>
           </div> 
-         <div className='rounded-full w-[40px] h-[40px] bg-[#33FFC2] p-[8px] flex justify-center items-center'>
+         <div onClick={() => navigate('/createCard/new')} className='rounded-full w-[40px] h-[40px] bg-[#33FFC2] p-[8px] flex justify-center items-center'>
          <img src={plus} alt="GreshPlus" />
           </div> 
       </div>

@@ -10,6 +10,8 @@ import DashboardWrapper from './components/Dashboard/DashboardWrapper'
 import Wallet from './components/Dashboard/Wallet'
 import Profile from './components/Dashboard/Profile'
 import Transactions from './components/Dashboard/Transactions'
+import CreateCard from './components/Cards/CreateCard'
+import CardWrapper from './components/Cards/CardWrapper'
 const Routers = () => {
   return (
     <Routes>
@@ -24,14 +26,23 @@ const Routers = () => {
         <DashboardWrapper>
           <Routes>
             <Route path='home' element={<MainDashboard />} />
-             <Route path='wallets' element={<Wallet />} />
-              <Route path='transactions' element={<Transactions />} />
-               <Route path='profile' element={<Profile />} />
+            <Route path='wallets' element={<Wallet />} />
+            <Route path='transactions' element={<Transactions />} />
+            <Route path='profile' element={<Profile />} />
             {/* Add more dashboard routes here */}
           </Routes>
         </DashboardWrapper>
       } />
       <Route path='/mainDashboard' element={<MainDashboard />} />
+
+
+      <Route path='/createCard/*' element={
+        <CardWrapper>
+          <Routes>
+            <Route path='new' element={<CreateCard />} />
+          </Routes>
+        </CardWrapper>
+      } />
     </Routes>
   )
 }
