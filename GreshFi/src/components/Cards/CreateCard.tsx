@@ -1,4 +1,4 @@
-import VISA from '../../assets/visa.png'
+import VISA from '../../assets/VISA.png'
 import STAR from '../../assets/sparkles-three.png'
 import { useNavigate } from 'react-router-dom'
 const CreateCard = () => {
