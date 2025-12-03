@@ -1,4 +1,4 @@
-import React from 'react'
+
 import VISA from '../../assets/visa.png'
 
 interface CardDisplayProps {

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Cancel from '../../assets/Vector.svg'
 import search from '../../assets/magnifying-glass-2.png'
 const SpecifyPlatform = ({ onClose }: { onClose: () => void }) => {

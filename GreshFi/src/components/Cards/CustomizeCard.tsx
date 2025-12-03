@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import  { useState, useEffect } from 'react'
 import shoppingBag from '../../assets/shopping-bag-1.svg'
 import limit from '../../assets/limit.svg'
 import ToggleButton from '../../assets/Toggle button.svg'
