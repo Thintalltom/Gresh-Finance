@@ -12,6 +12,13 @@ import Profile from './components/Dashboard/Profile'
 import Transactions from './components/Dashboard/Transactions'
 import CreateCard from './components/Cards/CreateCard'
 import CardWrapper from './components/Cards/CardWrapper'
+import CustomizeCard from './components/Cards/CustomizeCard'
+import SetupPin from './components/Cards/SetupPin'
+import FreezeActions from './components/CardActions/FreezeActions'
+import UnFreezeAction from './components/CardActions/UnFreezeAction'
+import ManageCard from './components/CardActions/ManageCard'
+import CardDetails from './components/CardActions/CardDetails'
+// import SpendingLimit from './components/Cards/SpendingLimit'
 const Routers = () => {
   return (
     <Routes>
@@ -22,6 +29,11 @@ const Routers = () => {
       <Route path="/personalDetails" element={<PersonalDetails />} />
       <Route path="/secureAccount" element={<SecureAccount />} />
       <Route path='/dashboardSplash' element={<DashboardSplash />} />
+      <Route path='/freezeActions'  element={<FreezeActions />} />  
+      <Route path='/unfreezeActions' element={<UnFreezeAction />} />
+      <Route path='/cardDetails' element={<CardDetails />} />
+      <Route path='/manageCard' element={<ManageCard />} />
+      {/* <Route path='/spendinglimit' element={<SpendingLimit />} /> */}
       <Route path='/dashboard/*' element={
         <DashboardWrapper>
           <Routes>
@@ -40,6 +52,8 @@ const Routers = () => {
         <CardWrapper>
           <Routes>
             <Route path='new' element={<CreateCard />} />
+          <Route path='customize' element={<CustomizeCard />} />
+          <Route path='setupPin' element={<SetupPin />} />
           </Routes>
         </CardWrapper>
       } />

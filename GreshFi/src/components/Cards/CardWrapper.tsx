@@ -5,12 +5,14 @@ const CardWrapper = ({children}: React.PropsWithChildren) => {
     const navigate = useNavigate()
     const location = useLocation()
     const createNewcard = location.pathname === '/createCard/new'
+    const setupPin = location.pathname === '/createCard/setupPin'
   return (
     <div>
-        <div className={`${createNewcard ? 'flex items-center gap-4' : ''} mt-[30px] `}>
-        <button className={`${createNewcard ? 'flex-initial w-32' : ''} p-4`}  onClick={() => navigate(-1)}>
+        <div className={`${createNewcard || setupPin ? 'flex items-center gap-4' : ''} mt-[30px] `}>
+        <button className={`${createNewcard || setupPin ? 'flex-initial w-32' : ''} p-4`}  onClick={() => navigate(-1)}>
           <ArrowLeftIcon size={24} />
         </button>
+        {setupPin && <h4 className={ `${setupPin ?'font-semibold text-[20px]   flex-initial w-64 mx-auto':''}`}>Setup PIN</h4>}
         {createNewcard && <h4 className={ `${createNewcard ?'font-semibold text-[20px]   flex-initial w-64 mx-auto':''}`}>Create Card</h4>}
         </div>
         <div className="px-4 py-2">{children}</div>
