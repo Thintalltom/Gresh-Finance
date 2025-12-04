@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 const CreateCard = () => {
     const navigate = useNavigate()
     return (
-        <div className="mt-[30px] min-h-screen bg-red-500 flex flex-col">
+        <div className="mt-[30px] min-h-screen  flex flex-col">
             <div className=' flex justify-center items-center h-fit'>
 
                 <div className='min-w-[420px] rounded-[16px] p-[16px] min-h-[320px] bg-gradient-to-l flex flex-col justify-between from-[#9C56FF] to-[#0E0D2F] rotate-90 mt-[40px]'>
