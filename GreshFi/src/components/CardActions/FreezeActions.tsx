@@ -43,7 +43,7 @@ const FreezeActions = () => {
         }
     ]
     return (
-        <div className='bg-[#33FFC2] h-screen'>
+        <div className='bg-[#33FFC2] h-fit'>
             <div className='flex justify-between p-[10px]'>
                 <button onClick={navigateBack}><ArrowLeftIcon /></button>
                 <div className='flex flex-col gap-[10px] justify-center items-center'>
@@ -53,7 +53,7 @@ const FreezeActions = () => {
             </div>
             <CardDisplay />
 
-            <div className='bg-white rounded-t-[20px] h-screen mt-[30px] flex flex-col'>
+            <div className='bg-white rounded-t-[20px] h-fit mt-[30px] flex flex-col'>
                 <div className='grid grid-cols-3 mt-[38px]'>
                     {icons.map((icon, index) => (
                         <button key={index} onClick={() => handleCardAction(index)} className='flex flex-col justify-center items-center gap-2'>
