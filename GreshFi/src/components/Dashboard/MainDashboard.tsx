@@ -79,7 +79,7 @@ const MainDashboard = () => {
     <section className="flex flex-col gap-[40px]">
       <div>
         <div 
-          className="flex flex-col gap-[8px] justify-center items-center touch-pan-x"
+          className="flex flex-col gap-[4px] justify-center items-center touch-pan-x"
           onTouchStart={(e) => {
             const startX = e.touches[0].clientX
             const handleTouchEnd = (endEvent: TouchEvent) => {
@@ -115,7 +115,7 @@ const MainDashboard = () => {
           ))}
         </div>
       </div>
-          <div className='grid grid-cols-3 mt-[38px]'>
+          <div className='grid grid-cols-3 '>
             {icons.map((icon, index) => (
               <button key={index} onClick={() => handleCardAction(index)} className='flex flex-col justify-center items-center gap-2'>
                 <div className='w-[64px] h-[64px] bg-white rounded-full  flex justify-center items-center'>

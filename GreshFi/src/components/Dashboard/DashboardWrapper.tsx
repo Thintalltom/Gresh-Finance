@@ -38,16 +38,16 @@ const DashboardWrapper = ({children}: React.PropsWithChildren) => {
 
   return (
     <div className='h-screen bg-gradient-to-b from-[#0D2F28] to-[#33FFC2] flex flex-col'>
-      <div className='flex justify-between p-[20px] w-screen pt-[24px] flex-shrink-0'>
+      <header className='fixed top-0 left-0 right-0 z-10 flex justify-between p-[20px] pt-[24px]'>
         <div className='rounded-full w-[40px] h-[40px] bg-[#33FFC2] p-[8px] flex justify-center items-center'>
           <p className='font-semibold text-[16px]'>TA</p>
           </div> 
          <div onClick={() => navigate('/createCard/new')} className='rounded-full w-[40px] h-[40px] bg-[#33FFC2] p-[8px] flex justify-center items-center'>
          <img src={plus} alt="GreshPlus" />
           </div> 
-      </div>
-      <main className='p-[20px] flex-1 overflow-y-auto pb-20'>{children}</main>
-      <div className='flex-shrink-0'> 
+      </header>
+      <main className='flex-1 overflow-y-auto pt-20 pb-20 px-[20px]'>{children}</main>
+      <nav className='fixed bottom-0 left-0 right-0 z-10'> 
       <div className='bg-[#124F40] w-screen grid grid-cols-4'>
         {profileLinks.map((link) => {
           return (
@@ -71,7 +71,7 @@ const DashboardWrapper = ({children}: React.PropsWithChildren) => {
           )
         })}
       </div>
-      </div>
+      </nav>
     </div>
   )
 }
