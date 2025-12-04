@@ -1,5 +1,5 @@
 
-import VISA from '../../assets/visa.png'
+import VISA from '../../assets/VISA.png'
 
 interface CardDisplayProps {
   brandName?: string
