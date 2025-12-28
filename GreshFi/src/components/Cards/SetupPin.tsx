@@ -51,10 +51,11 @@ const SetupPin = () => {
   }
 
   return (
-    <div className="flex flex-col gap-8 p-6 h-[100vh]">
+    <div className="flex flex-col justify-between p-6 h-[100vh]">
+      <div className="flex flex-col gap-8">
       <div>
-        <h3 className="font-semibold text-[18px] mb-4">Enter 4 digit PIN</h3>
-        <div className="flex gap-3">
+        <h3 className="font-semibold  text-[18px] mb-4">Enter 4 digit PIN</h3>
+        <div className="flex gap-3 ">
           {pin.map((digit, index) => (
             <input
               key={index}
@@ -69,8 +70,8 @@ const SetupPin = () => {
       </div>
 
       <div>
-        <h3 className="font-semibold text-[18px] mb-4">Confirm 4 digit PIN</h3>
-        <div className="flex gap-3">
+        <h3 className="font-semibold  text-[18px] mb-4">Confirm 4 digit PIN</h3>
+        <div className="flex gap-3 ">
           {confirmPin.map((digit, index) => (
             <input
               key={index}
@@ -83,10 +84,11 @@ const SetupPin = () => {
           ))}
         </div>
       </div>
+      </div>
 
       <button 
         onClick={handleSetupCard}
-        className="mt-auto mb-1 min-w-[348px] max-w-[358px] mx-auto bg-[#33FFC2] px-6 py-3 text-black rounded-[24px] font-semibold">Setup Card</button>
+        className="mb-1 w-full max-w-[358px] mx-auto bg-[#33FFC2] px-6 py-3 text-black rounded-[24px] font-semibold">Setup Card</button>
     </div>
   )
 }

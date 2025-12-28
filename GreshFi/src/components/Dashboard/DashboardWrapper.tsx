@@ -5,6 +5,10 @@ import CreditCardIcon from '../../assets/credit-card-2.svg.tsx'
 import PaymentIcon from '../../assets/payment.svg.tsx'
 import SupportIcon from '../../assets/support.svg.tsx'
 import plus from '../../assets/greshPlus.png'
+import FilterIcon from '../../assets/filterIcon.svg'
+import search from '../../assets/magnifying-glass-2.png'
+import { setTransactionFilter } from '../../redux/slice/CardSlice'
+import { useDispatch } from 'react-redux'
 const DashboardWrapper = ({children}: React.PropsWithChildren) => {
   const navigate = useNavigate()
   const location = useLocation()
@@ -17,10 +21,10 @@ const DashboardWrapper = ({children}: React.PropsWithChildren) => {
       current: location.pathname === '/dashboard/home',
     },
     {
-      name: 'Wallets',
-      href: '/dashboard/wallets',
+      name: 'Cards',
+      href: '/dashboard/cards',
       icon: CreditCardIcon,
-      current: location.pathname === '/dashboard/wallets',
+      current: location.pathname === '/dashboard/cards',
     },
     {
       name: 'Transactions',
@@ -29,22 +33,40 @@ const DashboardWrapper = ({children}: React.PropsWithChildren) => {
       current: location.pathname === '/dashboard/transactions',
     },
     {
-      name: 'Profile',
-      href: '/dashboard/profile',
+      name: 'Support',
+      href: '/dashboard/support',
       icon: SupportIcon,
-      current: location.pathname === '/dashboard/profile',
+      current: location.pathname === '/dashboard/support',
     }
   ]
-
+  const getTransactionPath = location.pathname === '/dashboard/transactions'
+  const getSupportPath = location.pathname === '/dashboard/support'
+  const dispatch = useDispatch()
   return (
     <div className='h-screen bg-gradient-to-b from-[#0D2F28] to-[#33FFC2] flex flex-col'>
       <header className='fixed top-0 left-0 right-0 z-10 flex justify-between p-[20px] pt-[24px]'>
-        <div className='rounded-full w-[40px] h-[40px] bg-[#33FFC2] p-[8px] flex justify-center items-center'>
-          <p className='font-semibold text-[16px]'>TA</p>
-          </div> 
-         <div onClick={() => navigate('/createCard/new')} className='rounded-full w-[40px] h-[40px] bg-[#33FFC2] p-[8px] flex justify-center items-center'>
-         <img src={plus} alt="GreshPlus" />
-          </div> 
+        {!getSupportPath && (
+          <div onClick={() => navigate('/userProfile/profile')} className='rounded-full w-[40px] h-[40px] bg-[#33FFC2] p-[8px] flex justify-center items-center'>
+            <p className='font-semibold text-[16px]'>TA</p>
+          </div>
+        )}
+        {getTransactionPath && (
+          <div className='bg-[#296357] flex justify-center items-center rounded-[24px] gap-[10px] px-[24px] w-full max-w-[254px]'>
+            <img src={search} alt='search box' className='w-[16px] h-[16px]' />
+            <input type='text' placeholder='search' className='bg-transparent outline-none' />
+          </div>
+        )}
+        {getTransactionPath ? (
+          <div onClick={() => dispatch(setTransactionFilter(true))} className=''>
+            <img src={FilterIcon} alt='filter icon' />
+          </div>
+        ) : (
+          !getSupportPath && (
+            <div onClick={() => navigate('/createCard/new')} className='rounded-full w-[40px] h-[40px] bg-[#33FFC2] p-[8px] flex justify-center items-center'>
+              <img src={plus} alt="GreshPlus" />
+            </div>
+          )
+        )}
       </header>
       <main className='flex-1 overflow-y-auto pt-20 pb-20 px-[20px]'>{children}</main>
       <nav className='fixed bottom-0 left-0 right-0 z-10'> 

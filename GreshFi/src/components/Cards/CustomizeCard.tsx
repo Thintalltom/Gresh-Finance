@@ -44,7 +44,7 @@ const CustomizeCard = () => {
   };
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col  h-[100vh]">
+    <div className="flex flex-col  h-fit">
       <h3 className='font-semibold text-[20px]'>Customize your card</h3>
       <p className='text-[14px] text-[#636363]'> Add a personal touch to your card for just $2.99.</p>
 
@@ -71,7 +71,7 @@ const CustomizeCard = () => {
           </div>
         ))}
       </div>
-      <button onClick={() => navigate('/createCard/setupPin')} className="mt-auto mb-1 min-w-[348px] max-w-[358px] mx-auto bg-[#33FFC2] px-6 py-3 text-black rounded-[24px] font-semibold">Setup PIN</button>
+      <button onClick={() => navigate('/createCard/setupPin')} className=" mb-1 min-w-[348px] max-w-[358px] mx-auto bg-[#33FFC2] px-6 py-3 text-black rounded-[24px] font-semibold">Setup PIN</button>
       {spendingScreen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-end justify-center z-50">
           <div className="bg-white rounded-t-lg w-full max-w-md">

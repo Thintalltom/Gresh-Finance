@@ -11,7 +11,7 @@ const SpendingLimit = ({ onClose }: { onClose: () => void }) => {
   }
 
   return (
-    <div className="flex flex-col  gap-6 p-6 h-[80vh]">
+    <div className="flex flex-col  gap-6 p-6 max-h-[70vh] min-h-[60vh]">
       <div  className='absolute right-0 p-[10px] mb-[30px] cursor-pointer' onClick={onClose}>
        <img src={Cancel} alt="Cancel" className='w-[11.74px] h-[11.74px]' />
       </div>
@@ -28,7 +28,7 @@ on your card each month.</p>
           value={spendingLimit}
           onChange={(e) => dispatch(setSpendingLimit(e.target.value))}
           placeholder="$0"
-          className="border-transparent border-gray-300 rounded-lg p-3 text-lg text-center focus:border-blue-500 focus:outline-none min-h-[300px] max-h-[350px] font-bold text-[48px]"
+          className="border-transparent border-gray-300 rounded-lg p-3 text-[60px] text-center focus:border-blue-500 focus:outline-none min-h-[300px] max-h-[350px] font-bold "
         />
       </div>
 

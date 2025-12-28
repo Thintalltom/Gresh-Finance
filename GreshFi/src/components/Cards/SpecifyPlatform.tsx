@@ -1,9 +1,22 @@
-
+import React, { useState } from 'react'
 import Cancel from '../../assets/Vector.svg'
 import search from '../../assets/magnifying-glass-2.png'
 const SpecifyPlatform = ({ onClose }: { onClose: () => void }) => {
+    const [inputValue, setInputValue] = useState('')
+    const [platforms, setPlatforms] = useState<string[]>([])
+
+    const handleKeyPress = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter' && inputValue.trim()) {
+            setPlatforms([...platforms, inputValue.trim()])
+            setInputValue('')
+        }
+    }
+
+    const removePlatform = (index: number) => {
+        setPlatforms(platforms.filter((_, i) => i !== index))
+    }
     return (
-        <div className="flex flex-col  gap-6 p-6 h-[80vh]">
+        <div className="flex flex-col  gap-6 p-6 max-h-[70vh] min-h-[60vh]">
             <div className='absolute right-0 p-[10px] mb-[30px] cursor-pointer' onClick={onClose}>
                 <img src={Cancel} alt="Cancel" className='w-[11.74px] h-[11.74px]' />
             </div>
@@ -15,6 +28,9 @@ const SpecifyPlatform = ({ onClose }: { onClose: () => void }) => {
                 <div className='relative'>
                     <input
                         type='text'
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        onKeyPress={handleKeyPress}
                         placeholder='Search platforms...'
                         className='w-full border border-gray-300 rounded-[24px] p-3 pl-10 focus:border-blue-500 focus:outline-none'
                     />
@@ -24,6 +40,22 @@ const SpecifyPlatform = ({ onClose }: { onClose: () => void }) => {
                         className='absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4'
                     />
                 </div>
+
+                {platforms.length > 0 && (
+                    <div className='flex flex-wrap gap-2 mt-4'>
+                        {platforms.map((platform, index) => (
+                            <div key={index} className='flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1'>
+                                <span className='text-sm'>{platform}</span>
+                                <button
+                                    onClick={() => removePlatform(index)}
+                                    className='text-red-500 hover:text-red-700'
+                                >
+                                    <img src={Cancel} alt="Remove" className='w-3 h-3' />
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
 
              <button 

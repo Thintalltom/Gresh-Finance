@@ -64,7 +64,41 @@ const MainDashboard = () => {
       date: '20 January, 13:34',
       price: '- $1,200.00',
       imaage: Twitter
-    }
+    },
+       {
+      title: 'Apple',
+      date: '20 January, 13:34',
+      price: '- $1,200.00',
+      imaage: ApplePay
+    },
+     {
+      title: 'Adobe Premium',
+      date: '20 January, 13:34',
+      price: '- $1,200.00',
+      imaage: Adobe
+    }, {
+      title: 'Twitter Premium',
+      date: '20 January, 13:34',
+      price: '- $1,200.00',
+      imaage: Twitter
+    },
+       {
+      title: 'Apple',
+      date: '20 January, 13:34',
+      price: '- $1,200.00',
+      imaage: ApplePay
+    },
+     {
+      title: 'Adobe Premium',
+      date: '20 January, 13:34',
+      price: '- $1,200.00',
+      imaage: Adobe
+    }, {
+      title: 'Twitter Premium',
+      date: '20 January, 13:34',
+      price: '- $1,200.00',
+      imaage: Twitter
+    },
   ]
 
   const handleSwipe = (direction: 'left' | 'right') => {
@@ -125,10 +159,10 @@ const MainDashboard = () => {
               </button>
             ))}
           </div>
-          <div className='rounded-[16px] p-[16px] bg-white max-h-[225px]'>
-            <div>
+          <div className='rounded-[16px] bg-white h-[225px] flex flex-col'>
+            <div className='flex-1 overflow-auto p-[16px] pb-0'>
               {paymentData.map((payment, index) => (
-                <div key={index} className='flex gap-[20px]'>
+                <div key={index} className='flex gap-[20px] mb-3'>
                   <img className='h-[24px] w-[24px] flex-none ' src={payment.imaage} alt={payment.title} />
                   <div className='flex flex-col gap-[10px] flex-initial w-64 '>
                     <h4 className='font-medium text-[14px]'>{payment.title}</h4>
@@ -137,7 +171,9 @@ const MainDashboard = () => {
                     <h4 className='text-[14px] text-[#000000] flex-initial w-50 '>{payment.price}</h4>
                   </div>
               ))}
-              <button className="mt-7 text-[#0D2F28] font-medium flex mx-auto ">See all</button>
+            </div>
+            <div className='flex-shrink-0 p-[16px] pt-2'>
+              <button className="text-[#0D2F28] font-medium flex mx-auto">See all</button>
             </div>
           </div>
     </section>

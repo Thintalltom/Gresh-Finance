@@ -18,6 +18,11 @@ import FreezeActions from './components/CardActions/FreezeActions'
 import UnFreezeAction from './components/CardActions/UnFreezeAction'
 import ManageCard from './components/CardActions/ManageCard'
 import CardDetails from './components/CardActions/CardDetails'
+import TransactionDispute from './components/UI/TransactionDispute'
+import Chat from './components/UI/Chat'
+import UserProfile from './components/UI/UserProfile'
+import UserAccount from './components/UserProfile/UserAccount'
+import EditProfile from './components/UserProfile/EditProfile'
 // import SpendingLimit from './components/Cards/SpendingLimit'
 const Routers = () => {
   return (
@@ -38,10 +43,10 @@ const Routers = () => {
         <DashboardWrapper>
           <Routes>
             <Route path='home' element={<MainDashboard />} />
-            <Route path='wallets' element={<Wallet />} />
+            <Route path='cards' element={<Wallet />} />
             <Route path='transactions' element={<Transactions />} />
-            <Route path='profile' element={<Profile />} />
             {/* Add more dashboard routes here */}
+            <Route path='support' element={<Profile />} />
           </Routes>
         </DashboardWrapper>
       } />
@@ -57,6 +62,16 @@ const Routers = () => {
           </Routes>
         </CardWrapper>
       } />
+      <Route path='/transactiondispute' element={<TransactionDispute />} />
+      <Route path='/chat'element={<Chat />} /> 
+      <Route path='/userProfile/*' element={
+        <Routes>
+          <Route path='profile' element={<UserProfile />} />
+          <Route path='/userAccount' element={<UserAccount />} />
+          <Route path='edit-info' element={<EditProfile />} />
+          </Routes>
+      }/>
+      
     </Routes>
   )
 }
